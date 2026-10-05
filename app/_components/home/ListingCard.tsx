@@ -24,7 +24,7 @@ export default function ListingCard({ listing }: ListingCardProps) {
         />
         <div className="absolute inset-x-3 top-3 flex items-start justify-between">
           {listing.isGuestFavorite ? <Badge label="Recomendación del viajero" /> : <span />}
-          <FavoriteButton />
+          <FavoriteButton listingId={listing.id} />
         </div>
       </div>
       <div className="flex items-start justify-between gap-2 text-sm">

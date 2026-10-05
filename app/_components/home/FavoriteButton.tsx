@@ -1,19 +1,25 @@
 "use client";
 
-import { useState } from "react";
 import { HeartIcon } from "@/app/_components/icons";
+import { useWishlist } from "@/app/_lib/WishlistContext";
 
-export default function FavoriteButton() {
-  const [isFavorite, setIsFavorite] = useState(false);
+interface FavoriteButtonProps {
+  listingId: string;
+}
+
+export default function FavoriteButton({ listingId }: FavoriteButtonProps) {
+  const { favoriteIds, isHydrated, toggleFavorite } = useWishlist();
+  const isFavorite = favoriteIds.includes(listingId);
 
   return (
     <button
       type="button"
       aria-label={isFavorite ? "Quitar de favoritos" : "Guardar en favoritos"}
       aria-pressed={isFavorite}
+      disabled={!isHydrated}
       onClick={(event) => {
         event.preventDefault();
-        setIsFavorite((value) => !value);
+        toggleFavorite(listingId);
       }}
       className={`transition-transform hover:scale-110 ${isFavorite ? "text-brand" : ""}`}
     >

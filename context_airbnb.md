@@ -131,9 +131,9 @@ CatalogPage (`app/s/[location]/page.tsx` o `app/catalog/page.tsx`)
     └── DestinationLinksGrid
 ```
 
-### 3.3 Vista 3: Página complementaria (por definir)
+### 3.3 Vista 3: Wishlists (lista de deseos)
 
-Una vista secundaria, como resultados de búsqueda, listas de deseos o perfil, conectada mediante navegación fluida entre rutas. Su alcance concreto debe definirse antes de implementarla.
+Vista para consultar los alojamientos guardados como favoritos, conservarlos al navegar entre rutas y retirarlos de la lista. La página se conecta con los controles para guardar de las tarjetas y del detalle del alojamiento.
 
 ### 3.4 Vista 4: Detalle del alojamiento / habitación (`app/rooms/[id]/page.tsx`)
 

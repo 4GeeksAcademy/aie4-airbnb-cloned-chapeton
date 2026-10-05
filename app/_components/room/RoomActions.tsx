@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { HeartIcon, ShareIcon } from "@/app/_components/icons";
+import { useWishlist } from "@/app/_lib/WishlistContext";
 
-export default function RoomActions() {
-  const [isFavorite, setIsFavorite] = useState(false);
+export default function RoomActions({ listingId }: { listingId: string }) {
+  const { favoriteIds, isHydrated, toggleFavorite } = useWishlist();
+  const isFavorite = favoriteIds.includes(listingId);
   const [shareLabel, setShareLabel] = useState("Compartir");
 
   async function handleShare() {
@@ -30,8 +32,9 @@ export default function RoomActions() {
       <button
         aria-label={isFavorite ? "Quitar de favoritos" : "Guardar alojamiento"}
         aria-pressed={isFavorite}
+        disabled={!isHydrated}
         className="flex items-center gap-2 rounded-lg px-2 py-2 text-sm font-semibold underline-offset-2 hover:bg-neutral-100 hover:underline"
-        onClick={() => setIsFavorite((value) => !value)}
+        onClick={() => toggleFavorite(listingId)}
         type="button"
       >
         <HeartIcon className="h-4 w-4" filled={isFavorite} />

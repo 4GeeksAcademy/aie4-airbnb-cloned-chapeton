@@ -36,7 +36,7 @@ export default function RoomDetailPage({ listing }: RoomDetailPageProps) {
               <span className="underline">{listing.location}</span>
             </div>
           </div>
-          <div className="hidden sm:block"><RoomActions /></div>
+          <div className="hidden sm:block"><RoomActions listingId={listing.id} /></div>
         </div>
 
         <section aria-label="Galería de fotos" className="relative">
@@ -159,7 +159,7 @@ export default function RoomDetailPage({ listing }: RoomDetailPageProps) {
             />
           </div>
         </div>
-        <div className="mt-8 sm:hidden"><RoomActions /></div>
+        <div className="mt-8 sm:hidden"><RoomActions listingId={listing.id} /></div>
         <Link className="sr-only" href="/">Volver al inicio</Link>
       </main>
       <Footer />
